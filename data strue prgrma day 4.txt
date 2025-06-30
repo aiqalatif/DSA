@@ -1,0 +1,102 @@
+
+Print Characters in Reverse with Space
+
+void printReverseWithSpace(String input) {
+  for (int i = input.length - 1; i >= 0; i--) {
+    print(input[i] + ' ');
+  }
+}
+
+void main() {
+  printReverseWithSpace("ayesha");
+}
+
+
+
+Count Consonants in a String
+
+
+void main() {
+  String input = "ayesha";
+  String vowels = "aeiouAEIOU";
+  int count = 0;
+
+  for (int i = 0; i < input.length; i++) {
+    if (!vowels.contains(input[i])) {
+      count++;
+    }
+  }
+
+  print(count);  // Output: 3 (a, e, a)
+}
+
+
+Store All Consonants in a List
+
+
+void main() {
+  String input = "ayesha";
+  String vowels = "aeiouAEIOU";
+  int count = 0;
+  List<String> stack = [];
+
+  for (int i = 0; i < input.length; i++) {
+    if (!vowels.contains(input[i])) {
+      stack.add(input[i]);
+      count++;
+    }
+  }
+
+  print(count);      // ✅ Correct: 3
+  print(stack);      // ✅ Correct: [y, s, h]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Reverse the Consonants Only
+dart
+Copy
+Edit
+
+
+
+
+
+void main() {
+  String input = "ayesha";
+  String vowels = "aeiouAEIOU";
+  List<String> stack = [];
+  int count = 0;
+  String reverse = '';
+
+  // Step 1: Store consonants
+  for (int i = 0; i < input.length; i++) {
+    if (!vowels.contains(input[i])) {
+      stack.add(input[i]);
+      count++;
+    }
+  }
+
+  // Step 2: Reverse consonants
+  for (int i = stack.length - 1; i >= 0; i--) {
+    reverse += stack[i];
+  }
+
+  print("Consonants Count: $count");     // Output: 3
+  print("Consonants: $stack");           // Output: [y, s, h]
+  print("Reversed Consonants: $reverse"); // Output: hsy
+}
