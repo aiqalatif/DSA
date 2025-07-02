@@ -1,0 +1,109 @@
+Next Greater Element I (LeetCode #496)
+List<int> nextGreaterElement(List<int> nums1, List<int> nums2) {
+  Map<int, int> nextGreaterMap = {};  // har element ka next greater store hoga
+  List<int> stack = [];
+
+  // nums2 mein stack use kar ke map build karo
+  for (int num in nums2) {
+    while (stack.isNotEmpty && stack.last < num) {
+      nextGreaterMap[stack.removeLast()] = num;
+    }
+    stack.add(num);
+  }
+
+  // jin ke next greater nahi mila unka -1 set karo
+  for (int remaining in stack) {
+    nextGreaterMap[remaining] = -1;
+  }
+
+  // nums1 ke hisaab se result banao
+  return nums1.map((num) => nextGreaterMap[num] ?? -1).toList();
+}  es ko bi
+
+
+
+remove dubilcate string
+
+
+
+String removeDuplicates(String s) {
+  List<String> stack = [];
+
+  for (int i = 0; i < s.length; i++) {
+    String char = s[i];
+
+    if (stack.isNotEmpty && stack.last == char) {
+      stack.removeLast(); // remove duplicate
+    } else {
+      stack.add(char); // push new char
+    }
+  }
+
+  return stack.join(); // return final string
+}
+
+void main() {
+  print(removeDuplicates("abbaca")); // ca
+  
+  print(removeDuplicates("azxxzy")); // ay
+  print(removeDuplicates("a")); // a
+  print(removeDuplicates("aa")); // (empty)
+}
+
+
+
+removerstick means remve the wrod that occure before strack   
+String removeStars(String s) {
+  List<String> stack = [];
+
+  for (int i = 0; i < s.length; i++) {
+    String char = s[i];
+
+    if (stack.isNotEmpty &&  char == '*') {
+      stack.removeLast(); // remove duplicate
+    } else {
+      stack.add(char); // push new char
+    }
+  }
+
+  return stack.join(); // return final string
+}
+
+void main() {
+  // false
+  print(removeStars('a*bb*ca'));
+}
+
+
+
+
+remove dublicate Aa in string 
+String removeStars(String s) {
+  List<String> stack = [];
+
+  for (int i = 0; i < s.length; i++) {
+    String char1 = s[i];
+
+    if (stack.isNotEmpty) {
+      String char2 = stack.last;
+
+   
+      if (char1 != char2 && char1.toLowerCase() == char2.toLowerCase()) {
+        stack.removeLast(); 
+        continue;
+      }
+    }
+
+    stack.add(char1); 
+  }
+
+  return stack.join();
+}
+
+void main() {
+  print(removeStars('abbBca'));      // Output: "abca"
+  print(removeStars('abBA'));        // Output: ""
+  print(removeStars('leEeetcode'));  // Output: "leetcode"
+  print(removeStars('s'));           // Output: "s"
+}
+
