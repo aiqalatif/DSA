@@ -1,0 +1,33 @@
+👉 3. Longest Substring Without Repeating Characters
+String lengthOfLongestSubstring(String s) {
+  Set<String> seen = {};
+  int left = 0;
+  int maxLength = 0;
+  int start = 0;
+
+  for (int right = 0; right < s.length; right++) {
+    String currentChar = s[right].toLowerCase();
+    
+    while (seen.contains(currentChar)) {
+      seen.remove(s[left].toLowerCase());
+      left++;
+    }
+
+    seen.add(currentChar);
+    int currentLength = right - left + 1;
+    
+    if (currentLength > maxLength) {
+      maxLength = currentLength;
+      start = left;
+    }
+  }
+
+  return s.substring(start, start + maxLength);
+}
+
+void main() {
+  print(lengthOfLongestSubstring('abbBca'));      // Output: "bca"
+  print(lengthOfLongestSubstring('abBA'));        // Output: "bA" or "aB"
+  print(lengthOfLongestSubstring('leEeetcode'));  // Output: "etcode"
+  print(lengthOfLongestSubstring('s'));           // Output: "s"
+}
