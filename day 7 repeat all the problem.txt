@@ -1,0 +1,74 @@
+Print Characters in Reverse
+String reversed(String s){
+List<String> chars =[];
+
+  for(int i=s.length-1; i>=0;i--){
+    chars.add(s[i]);
+}
+  return chars.join('');
+}
+
+
+void main(  ) {
+
+ print(reversed("ayesha"));
+  
+}
+
+Count Consonants in a String
+
+String reversed(String s){
+List<String> chars =['a','e','i','o','u'];
+ int count=0;
+  List<String>constant=[];
+  for(int i=0; i<s.length;i++){
+    if(!chars.contains(s[i].toLowerCase())){
+    
+    count++;
+      constant.add(s[i]);
+    } 
+}
+  return constant.join('');
+}
+
+
+void main(  ) {
+
+ print(reversed("ayEsha"));
+  
+}
+
+
+
+
+
+
+Reverse the Consonants Only
+
+String reversed(String s){
+List<String> chars =['a','e','i','o','u'];
+ int count=0;
+  List<String>constant=[];
+    List<String>resverd=[];
+  for(int i=0; i<s.length;i++){
+    if(!chars.contains(s[i].toLowerCase())){
+    
+    count++;
+      constant.add(s[i]);
+    } 
+}
+    for(int i=constant.length-1; i>=0; i--){
+     resverd.add(constant[i]);
+}
+  return resverd.join('');
+}
+
+
+void main(  ) {
+
+ print(reversed("ayEsha"));
+  
+}
+
+
+
