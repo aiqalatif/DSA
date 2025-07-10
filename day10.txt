@@ -1,0 +1,83 @@
+
+Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+Note that you must do this in-place without making a copy of the array.
+
+ 
+
+Example 1:
+
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
+
+
+void remvoe(List<int> nums){
+
+ int index=0;
+  for (int i=0;i<nums.length;i++){
+    if(nums[i]!=0){
+     nums[index]=nums[i];
+      index++;
+    }
+  
+  }
+ while(index<nums.length) {
+   nums[index]=0;
+   index++;
+ }  
+   print(nums);
+ 
+}
+void main(){
+   remvoe([1, 2, 0, 3]);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
+
+Increment the large integer by one and return the resulting array of digits.
+
+ 
+
+Example 1:
+
+Input: digits = [1,2,3]
+Output: [1,2,4]
+Explanation: The array represents the integer 123.
+Incrementing by one gives 123 + 1 = 124.
+Thus, the result should be [1,2,4].
+
+
+
+
+
+
+
+List<int> remvoe(List<int> nums) {
+  for (int i = nums.length - 1; i >= 0; i--) {
+    if (nums[i] < 9) {
+      nums[i]++;
+      return nums;
+    } else {
+      nums[i] = 0;
+    }
+  }
+  // if all digits were 9, e.g., [9,9,9]
+  return [1] + nums;
+}
+
+void main() {
+  print(remvoe([1, 2, 3]));    // [1, 2, 4]
+  print(remvoe([4, 3, 2, 9])); // [4, 3, 3, 0]
+  print(remvoe([9, 9, 9]));    // [1, 0, 0, 0]
+}
