@@ -1,0 +1,54 @@
+abstract class 
+abstract class Machine {
+  void start() => print("rhrhrhrhrhhrr");
+  void finish();
+}
+
+class Car extends Machine {
+  @override
+  void start() => print("rmy machine");
+    @override
+  void finish()=>print("hy finsh the implement");
+}
+
+void main() {
+  Car car = Car();
+  car.finish(); // Output: Machine starting ✅
+}
+
+
+defination
+
+Abstract class can have both implemented and unimplemented methods.
+You must override all unimplemented methods in the child class.
+An abstract class in Dart is a class that cannot be instantiated directly and is used to define a common interface or blueprint for other classes.
+ It can contain abstract methods (without a body) that must be implemented by its subclasses, as well as regular methods with implementation
+Key Points:
+Defined using the abstract keyword.
+
+Cannot be used to create objects.
+
+Subclasses must implement all abstract methods.
+
+Can also include non-abstract methods (with body).
+
+
+
+
+✅ Definition of Interface (in Dart):
+In Dart, an interface is a contract that defines method signatures without providing implementation. Dart does not have a separate interface keyword, so any class (abstract or concrete) can act as an interface when used with the implements keyword.
+Classes that implement an interface must override and define all its methods.
+
+🔑 Key Points:
+No separate interface keyword in Dart.
+
+Use implements to treat a class as an interface.
+
+All methods must be overridden.
+
+Supports multiple interfaces via comma-separated implements.
+
+
+ Final Tip:
+🔹 Use extends when you want to inherit behavior.
+🔹 Use implements when you want to enforce a rule or interface, not reuse
