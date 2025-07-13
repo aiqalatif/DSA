@@ -1,0 +1,56 @@
+ What is Encapsulation?
+Encapsulation is the process of hiding internal data and making it accessible only through defined interfaces (getters and setters).
+It helps in:
+
+Data hiding
+
+Better code control
+
+Reducing complexity
+
+Enhancing security
+
+🔐 In Dart, How Do You Achieve Encapsulation?
+Dart supports encapsulation using:
+
+Private members (prefix with _)
+
+Public access through getters and setters
+
+
+
+
+
+
+
+
+
+
+
+class  HidingData{
+   double _blance=0;
+  get blance => _blance;
+  
+  void amoun(double amount){
+if(amount>0){
+    _blance+=amount;
+  
+}else{
+   print("ammount is not enoguh in account");
+}  }
+  void widhtdraw(double amount){
+    if(amount>0&&amount<=_blance){
+     _blance-=amount; 
+    }
+    else{
+      print("ammount is not enoguh in account");
+    }
+  }
+}
+
+void main() {
+ HidingData hindclas =HidingData();
+hindclas.amoun(2000);
+  hindclas.widhtdraw(200);
+ print(hindclas._blance);
+}
