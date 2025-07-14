@@ -1,0 +1,39 @@
+Inheritance
+Inheritance allows one class (child) to reuse the properties and methods of another class (parent).
+
+Example:
+class Dog extends Animal → Dog inherits from Animal.
+ Method Overriding
+When a child class redefines a method from the parent class with the same name and parameters.
+
+Purpose:
+To change or customize the inherited method’s behavior.
+
+Example:
+
+dart
+Copy
+Edit
+class Animal {
+  void sound() => print("Animal sound");
+}
+
+class Cat extends Animal {
+  @override
+  void sound() => print("Meow");
+}
+Method Overloading (Simulated in Dart)
+Having multiple methods with the same name but different parameters.
+
+Note:
+Dart doesn't support overloading directly, but you can simulate it using optional or named parameters.
+
+Example:
+
+dart
+Copy
+Edit
+void greet(String name, [int? age]) {
+  print("Hello $name");
+  if (age != null) print("You are $age years old");
+}
