@@ -1,0 +1,79 @@
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+ 
+
+Example 1:
+
+Input: s = "anagram", t = "nagaram"
+
+Output: true
+
+Example 2:
+
+Input: s = "rat", t = "car"
+
+Output: false
+
+bool reverse(String s,String t) {
+
+ Map<String,int>seen={};
+ 
+  for(var char in s.split('')){
+    seen[char]=(seen[char]??0)+1;
+  }
+  
+  for(var char in t.split('')){
+    if(!seen.containsKey(char)||seen[char]==0){
+      return false;
+    }
+    seen[char] = seen[char]! - 1;
+  }
+  return true;
+}
+
+void main() {
+  print(reverse("anagram", "nagaram"));
+  print(reverse("rat", "car")); // Should print -123
+}
+
+
+
+
+Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+
+Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+
+ 
+
+Example 1:
+
+Input: x = 123
+Output: 321
+
+
+
+int reverse(int x) {
+  if (x == -2147483648) {
+    return 0;
+  }
+  int sign = x < 0 ? -1 : 1;
+  int n = sign * x;
+  int reversed = 0;
+  while (n > 0) {
+    int digit = n % 10;
+    n = n ~/ 10;
+    if (reversed > 214748364 || (reversed == 214748364 && digit > 7)) {
+      return 0;
+    }
+    int newReversed = reversed * 10 + digit;
+    if (newReversed < 0) {
+      return 0;
+    }
+    reversed = newReversed;
+  }
+  return sign * reversed;
+}
+
+void main() {
+  print(reverse(-321));
+}
