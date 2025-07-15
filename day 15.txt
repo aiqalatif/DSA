@@ -1,0 +1,82 @@
+
+Given an integer x, return true if x is a palindrome, and false otherwise.
+
+ 
+
+Example 1:
+
+Input: x = 121
+Output: true
+Explanation: 121 reads as 121 from left to right and from right to left.
+Example 2:
+
+Input: x = -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+Example 3:
+
+Input: x = 10
+Output: false
+Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+
+
+bool reverse(int x) {
+  int original =x;
+  int reversed=0;
+  while(x>0){
+    int digit=x%10;
+    reversed=reversed*10+digit;
+    x~/=10;
+  }
+
+  return original==reversed ;
+}
+
+void main() {
+  print(reverse(121)); // Output: "flow"
+}
+
+
+
+14. Longest Common Prefix
+Easy
+Topics
+premium lock icon
+Companies
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+ 
+
+Example 1:
+
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+Example 2:
+
+Input: strs = ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+   hum es men frequency check kry gy jo word zeyada br aya os ko send kr de gy
+
+
+String longestCommonPrefix(List<String> strs) {
+  if (strs.isEmpty) return "";
+
+  String prefix = strs[0];
+
+  for (int i = 1; i < strs.length; i++) {
+    while (!strs[i].startsWith(prefix)) {
+      prefix = prefix.substring(0, prefix.length - 1);
+      if (prefix.isEmpty) return "";
+    }
+  }
+
+  return prefix;
+}
+
+void main() {
+  print(longestCommonPrefix(["flower", "flow", "flight"])); // Output: "fl"
+  print(longestCommonPrefix(["dog", "racecar", "car"])); // Output: ""
+}
