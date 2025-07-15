@@ -1,0 +1,41 @@
+ What is Polymorphism in OOP?
+Polymorphism allows one function, class, or method to behave differently based on context or input.
+
+ Types of Polymorphism:
+✅ Compile-time Polymorphism (also called Method Overloading)
+
+✅ Runtime Polymorphism (also called Method Overriding)
+
+Method Overloading
+class Calculator {
+  int add(int a, int b) => a + b;
+
+  int addThree(int a, int b, int c) => a + b + c;
+}
+
+void main() {
+  Calculator calc = Calculator();
+  print(calc.add(2, 3));         // 5
+  print(calc.addThree(1, 2, 3)); // 6
+}
+ Method Overriding 
+class Animal {
+  void speak() {
+    print("Animal makes sound");
+  }
+}
+
+class Dog extends Animal {
+  @override
+  void speak() {
+    print("Dog barks");
+  }
+}
+
+void main() {
+  Animal a = Animal();
+  Dog d = Dog();
+
+  a.speak(); // Animal makes sound
+  d.speak(); // Dog barks
+}
