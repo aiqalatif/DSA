@@ -1,0 +1,53 @@
+
+Valid Anagram
+
+bool anagram(String nums,String nums1, ) {
+  Map<String, int> myMap = {};
+
+  for (int i =0; i<nums.length; i++) {
+     String ch=nums[i];
+    myMap[ch]= (myMap[ch]??0)+1;
+  }
+   for (int i =0; i<nums1.length; i++) {
+     String ch=nums1[i];
+     if(!myMap.containsKey(nums1[i])) return false;
+     
+      myMap[ch]= myMap[ch]!-1;
+     if(myMap[ch]==0){
+       myMap.remove(ch);
+     }
+     
+  }
+ 
+  return myMap.isEmpty;
+}
+
+void main() {
+  print(anagram('listen','silent')); 
+         
+}
+
+
+
+
+
+eetCode Problem #217: Contains Duplicate
+bool twoSum(List<int> nums, ) {
+  Set map ={};
+
+  for (int i =0; i<nums.length; i++) {
+       if(map.contains(nums[i])){
+         return true;
+       }
+    map.add(nums[i]);
+   
+   
+  }
+ 
+  return false;
+}
+
+void main() {
+  print(twoSum([1,2,1])); // Output: [0, 1]
+          // Output: [0, 1]
+} 
