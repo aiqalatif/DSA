@@ -1,0 +1,24 @@
+ LeetCode #347 – Top K Frequent Elements
+
+int groupAnagrams(List<int> strs) {
+  Map<int, int> map = {};
+
+  for (int str in strs) {
+   map[str]= (map[str]??0)+1;
+  }
+  int max=0;
+  int passcount=0;
+  for(var str in map.entries){
+    if(str.value>max){
+      max=str.value;
+      passcount=str.key;
+    }
+  }
+  return passcount;
+}
+
+void main() {
+ 
+  print(groupAnagrams([1, 3, 1, 3, 2, 1]));
+}
+
